@@ -197,7 +197,73 @@ function chardata() {
     const defElement = document.getElementById('pkychardata');
     defElement.appendChild(def);
     const defwhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
-    atkElement.appendChild(defwhitespace);
+    defElement.appendChild(defwhitespace);
     const DEF = Math.floor(jsonData.characters[0].attributes[2].value + jsonData.characters[0].additions[5].value);
-    atkElement.appendChild(document.createTextNode(DEF));
+    defElement.appendChild(document.createTextNode(DEF));
+
+    var br = document.createElement("br");
+    defElement.appendChild(br);
+
+    let spd = document.createElement("img");
+    let spdpath = basePath + jsonData.characters[0].attributes[3].icon;
+    spd.src = spdpath;
+    spd.style.width = "26px";
+    spd.style.height = "26px";
+    spd.style.objectFit = "contain"; 
+    const spdElement = document.getElementById('pkychardata');
+    spdElement.appendChild(spd);
+    const spdwhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
+    spdElement.appendChild(spdwhitespace);
+    const SPD = Math.floor(jsonData.characters[0].attributes[3].value + jsonData.characters[0].additions[2].value);
+    defElement.appendChild(document.createTextNode(SPD));
+
+    let critrate = document.createElement("img");
+    let critratepath = basePath + jsonData.characters[0].attributes[4].icon;
+    critrate.src = critratepath;
+    critrate.style.width = "26px";
+    critrate.style.height = "26px";
+    critrate.style.objectFit = "contain";
+    const critrateElement = document.getElementById('pkychardata');
+    critrateElement.appendChild(critrate);
+    const critratewhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
+    critrateElement.appendChild(critratewhitespace);
+    let CRITR = (jsonData.characters[0].attributes[4].value + jsonData.characters[0].additions[3].value) * 100;
+    CRITR = Math.floor(CRITR)
+    CRITR = CRITR.toString();
+    defElement.appendChild(document.createTextNode(CRITR+"%"));
+
+    let critdmg = document.createElement("img");
+    let critdmgpath = basePath + jsonData.characters[0].attributes[5].icon;
+    critdmg.src = critdmgpath;
+    critdmg.style.width = "26px";
+    critdmg.style.height = "26px";
+    critdmg.style.objectFit = "contain";
+    const critdmgElement = document.getElementById('pkychardata');
+    critdmgElement.appendChild(critdmg);
+    const critdmgwhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
+    critdmgElement.appendChild(critdmgwhitespace);
+    let CRITD = (jsonData.characters[0].attributes[5].value + jsonData.characters[0].additions[6].value) * 100;
+    CRITD = Math.floor(CRITD)
+    CRITD = CRITD.toString();
+    defElement.appendChild(document.createTextNode(CRITD + "%"));
+}
+function relicdata() {
+    // not yet finished 
+    const basePath = "lib/StarRailRes/";
+    const jsonData = getFromSessionStorage();
+
+    let spd = document.createElement("img");
+    let spdpath = basePath + jsonData.characters[0].attributes[3].icon;
+    spd.src = spdpath;
+    spd.style.width = "26px";
+    spd.style.height = "26px";
+    spd.style.objectFit = "contain";
+    const spdElement = document.getElementById('pkychardata');
+    spdElement.appendChild(spd);
+    const type1 = document.createTextNode("Head"); // This is 7 non-breaking spaces
+    spdElement.appendChild(type1);
+    const spdwhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
+    spdElement.appendChild(spdwhitespace);
+    const SPD = Math.floor(jsonData.characters[0].attributes[3].value + jsonData.characters[0].additions[2].value);
+    defElement.appendChild(document.createTextNode(SPD));
 }
