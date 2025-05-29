@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body id="body">
     <h2>Enter User ID</h2>
+    <h2 id="username">User: </h2>
     <input type="number" id="userIdInput" placeholder="Enter ID">
     <button onclick="fetchAndSaveUserInfo()">Fetch and Save Info</button>
-    <button id="load" onclick="chapre()">Load</button>
     <!-- button id="processButton">Process</button -->
+    <div id="cha1data">
+        <table class="tg">
+            <thead>
+                <tr>
+                    <td id="tg-0pky" class="tg-0pky">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <div class="cha1name" id="cha1name"></div>
+                                        <div class="cha1lvl" id="cha1lvl">Level:</div>
+                                        <div class="cha1type" id="cha1type"></div>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+
+                    </td>
+                    <td class="tg-0pky">
+                        <table class="tg">
+                            <thead>
+                                <tr>
+                                    <th class="tg-0pky" colspan="3" id="pkychardata">
+                                        <!-- char data  -->
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-0lax"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-0lax"></td>
+                                    <td class="tg-0lax"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>

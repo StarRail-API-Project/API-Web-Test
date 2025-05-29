@@ -1,0 +1,38 @@
+
+body{background-color: black; color: white}
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-0pky {
+    position: relative;
+}
+.tg .tg-0pky .text {
+    position: absolute;
+}
+.tg .tg-0pky .text {
+    color: blue;
+    font-family: sans-serif;
+}
+.cha1name {
+    top: 0;
+    left: 0;
+}
+.cha1lvl {
+    top: 10px;
+    left: 10px
+}
+.cha1type {
+    top: 20px;
+    left: 20px;
+}
+.tg {
+    border: 0px solid black;
+    table-layout: fixed;
+    opacity: 1;
+
+}
+
