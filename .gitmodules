@@ -1,6 +1,6 @@
 [submodule "lib/StarRailRes"]
 	path = public/lib/StarRailRes
-	url = git://github.com/Mar-7th/StarRailRes/
+	url = https://github.com/Mar-7th/StarRailRes/
 [submodule "public/lib/StarRailRes"]
 	path = public/lib/StarRailRes
-	url = git://github.com/Mar-7th/StarRailRes/
+	url = https://github.com/Mar-7th/StarRailRes/
