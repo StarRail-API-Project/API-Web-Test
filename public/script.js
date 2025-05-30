@@ -28,22 +28,22 @@ async function fetchAndSaveUserInfo() {
 }
 function getFromSessionStorage() {
     try {
-    const jsonString = sessionStorage.getItem('apiData');
-    if (jsonString) {
-    const jsonData = JSON.parse(jsonString);
-    console.log('Data retrieved from session storage:', jsonData);
-    return jsonData;
-    } else {
-        console.log('No data found in session storage.');
-    return null;
-    }
+        const jsonString = sessionStorage.getItem('apiData');
+        if (jsonString) {
+            const jsonData = JSON.parse(jsonString);
+            console.log('Data retrieved from session storage:', jsonData);
+            return jsonData;
+        } else {
+            console.log('No data found in session storage.');
+            return null;
+        }
     } catch (error) {
-    console.error('Error retrieving data from session storage:', error);
-    return null;
+        console.error('Error retrieving data from session storage:', error);
+        return null;
     }
 }
 function chapre() {
-    const basePath = "lib/StarRailRes/"; 
+    const basePath = "lib/StarRailRes/";
     const jsonData = getFromSessionStorage();
     if (!jsonData || typeof jsonData.characters[0].portrait === 'undefined') {
         console.error("Could not find portrait data in session storage");
@@ -51,9 +51,9 @@ function chapre() {
         errorMsg.textContent = "Error: Could not load character portrait";
         errorMsg.style.color = "red";
         (document.getElementById('tg-0pky') || document.body).appendChild(errorMsg);
-        return; 
+        return;
     }
-    const portraitFileName = jsonData.characters[0].portrait; 
+    const portraitFileName = jsonData.characters[0].portrait;
     const imagePath = basePath + portraitFileName;
     // 'contain' will fit the entire image within the bounds, possibly leaving empty space.
     // 'cover' will fill the bounds, possibly cropping some of the image.
@@ -63,9 +63,9 @@ function chapre() {
     img.src = imagePath;
     img.style.width = "480px";
     img.style.height = "480px";
-    img.style.objectFit = "contain"; 
-    img.onerror = function() {
-        console.error("Error loading image. Path: " + imagePath );
+    img.style.objectFit = "contain";
+    img.onerror = function () {
+        console.error("Error loading image. Path: " + imagePath);
         const errorText = document.createElement('p');
         errorText.textContent = `Failed to load image: ${imagePath}`;
         errorText.style.color = "orange";
@@ -75,7 +75,7 @@ function chapre() {
             (document.getElementById('tg-0pky') || document.body).appendChild(errorText);
         }
     };
-    img.alt = portraitFileName; 
+    img.alt = portraitFileName;
     document.getElementById('tg-0pky').appendChild(img);
     // name handling 
     const name = document.getElementById('username');
@@ -83,7 +83,7 @@ function chapre() {
 
     const nameElement = document.getElementById('cha1name');
     nameElement.innerHTML += jsonData.characters[0].name;
-    
+
     const lvlElement = document.getElementById('cha1lvl');
     lvlElement.innerHTML += jsonData.characters[0].level;
 
@@ -209,7 +209,7 @@ function chardata() {
     spd.src = spdpath;
     spd.style.width = "26px";
     spd.style.height = "26px";
-    spd.style.objectFit = "contain"; 
+    spd.style.objectFit = "contain";
     const spdElement = document.getElementById('pkychardata');
     spdElement.appendChild(spd);
     const spdwhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
@@ -230,7 +230,7 @@ function chardata() {
     let CRITR = (jsonData.characters[0].attributes[4].value + jsonData.characters[0].additions[3].value) * 100;
     CRITR = Math.floor(CRITR)
     CRITR = CRITR.toString();
-    defElement.appendChild(document.createTextNode(CRITR+"%"));
+    defElement.appendChild(document.createTextNode(CRITR + "%"));
 
     let critdmg = document.createElement("img");
     let critdmgpath = basePath + jsonData.characters[0].attributes[5].icon;
@@ -246,24 +246,30 @@ function chardata() {
     CRITD = Math.floor(CRITD)
     CRITD = CRITD.toString();
     defElement.appendChild(document.createTextNode(CRITD + "%"));
+    relicdata();
 }
 function relicdata() {
     // not yet finished 
     const basePath = "lib/StarRailRes/";
     const jsonData = getFromSessionStorage();
 
-    let spd = document.createElement("img");
-    let spdpath = basePath + jsonData.characters[0].attributes[3].icon;
-    spd.src = spdpath;
-    spd.style.width = "26px";
-    spd.style.height = "26px";
-    spd.style.objectFit = "contain";
-    const spdElement = document.getElementById('pkychardata');
-    spdElement.appendChild(spd);
+    let relic0 = document.createElement("img");
+    let relic0path = basePath + jsonData.characters[0].relics[0].icon;
+    relic0.src = relic0path;
+    relic0.style.width = "26px";
+    relic0.style.height = "26px";
+    relic0.style.objectFit = "contain";
+    const relic0Element = document.getElementById('relic1');
+    const name = document.createTextNode(jsonData.characters[0].relics[0].name); // This is 7 non-breaking spaces
+    relic0Element.appendChild(name);
+    var br = document.createElement("br");
+    relic0Element.appendChild(br);
     const type1 = document.createTextNode("Head"); // This is 7 non-breaking spaces
-    spdElement.appendChild(type1);
-    const spdwhitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
-    spdElement.appendChild(spdwhitespace);
-    const SPD = Math.floor(jsonData.characters[0].attributes[3].value + jsonData.characters[0].additions[2].value);
-    defElement.appendChild(document.createTextNode(SPD));
+    relic0Element.appendChild(type1);
+    const relic0whitespace = document.createTextNode("\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"); // This is 7 non-breaking spaces
+    relic0Element.appendChild(relic0whitespace);
+    relic0Element.appendChild(relic0);
+
+    //const REL0 = Math.floor(jsonData.characters[0].attributes[3].value + jsonData.characters[0].additions[2].value);
+    //defElement.appendChild(document.createTextNode(REL0));
 }
